@@ -127,3 +127,335 @@ h1, h2, h3, h4, h5, h6 {
 .animate-float-diagonal { animation: float-diagonal 9s ease-in-out infinite; }
 .animate-breathe { animation: breathe 6s ease-in-out infinite; }
 .animate-streak { animation: streak 8s linear infinite; }
+
+/* ── PhilHealth estimator pages ── */
+
+.estimator-range {
+  --range-percent: 0%;
+  appearance: none;
+  background: transparent;
+  height: 18px;
+}
+
+.estimator-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(to right, #0f4c4a var(--range-percent), #e5e7eb var(--range-percent));
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.08);
+}
+
+.estimator-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -7px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: #0f4c4a;
+  box-shadow: 0 3px 8px rgba(15, 23, 42, 0.22);
+}
+
+.estimator-range::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: #e4e4ec;
+}
+
+.estimator-range::-moz-range-progress {
+  height: 4px;
+  border-radius: 999px;
+  background: #0f4c4a;
+}
+
+.estimator-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: #0f4c4a;
+  box-shadow: 0 3px 8px rgba(15, 23, 42, 0.22);
+}
+
+.atomix-flow-grid {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+  padding: 0 3px 3px;
+}
+
+.atomix-flow-stage {
+  opacity: 0;
+  transform: translateY(16px);
+  min-width: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.atomix-flow-stage.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.atomix-stage-scan {
+  height: 2px;
+  width: 0;
+  margin-bottom: 14px;
+  border-radius: 999px;
+  background: #0f4c4a;
+  transition: width 0.9s ease;
+}
+
+.atomix-stage-scan.is-visible {
+  width: 100%;
+}
+
+.atomix-flow-card {
+  min-width: 0;
+  min-height: 118px;
+  border: 1px solid rgba(15, 76, 74, 0.12);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.atomix-output-card {
+  padding: clamp(8px, 1.4vw, 14px);
+}
+
+.atomix-doc-carousel {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 2px 28px 4px;
+  margin: 0 -28px;
+}
+
+.atomix-doc-carousel::before,
+.atomix-doc-carousel::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 42px;
+  pointer-events: none;
+  content: '';
+}
+
+.atomix-doc-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, #e6efee, rgba(230, 239, 238, 0));
+}
+
+.atomix-doc-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, #e6efee, rgba(230, 239, 238, 0));
+}
+
+.atomix-doc-track {
+  display: flex;
+  width: max-content;
+  gap: 10px;
+  opacity: 0;
+  animation: atomix-doc-marquee 28s linear infinite;
+  animation-play-state: paused;
+  transition: opacity 0.45s ease;
+}
+
+.atomix-doc-track.is-visible {
+  opacity: 1;
+  animation-play-state: running;
+}
+
+.atomix-doc-card {
+  width: min(158px, 42vw);
+  min-height: 126px;
+  flex: 0 0 min(158px, 42vw);
+}
+
+.atomix-issue-grid {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .atomix-issue-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.atomix-issue-card {
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.45s ease, transform 0.45s ease, background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
+}
+
+.atomix-issue-unresolved {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+.atomix-issue-resolved {
+  position: absolute;
+  inset: 14px;
+  display: flex;
+  gap: 12px;
+  min-width: 0;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.atomix-issue-card.is-resolved {
+  border-color: rgba(15, 76, 74, 0.3);
+  background-color: #f4fbf8;
+  color: #0f4c4a;
+}
+
+.atomix-issue-card.is-resolved .atomix-issue-unresolved {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+.atomix-issue-card.is-resolved .atomix-issue-resolved {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.atomix-issue-cursor {
+  position: absolute;
+  z-index: 3;
+  display: none;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.2s ease, left 0.45s ease, top 0.45s ease, transform 0.45s ease;
+}
+
+.atomix-issue-grid.is-active .atomix-issue-cursor {
+  display: block;
+  animation: atomix-cursor-press 1.2s ease-in-out infinite;
+}
+
+.atomix-issue-cursor.is-hidden { opacity: 0; }
+.atomix-issue-cursor-0 { left: 8%; top: 6%; }
+.atomix-issue-cursor-1 { left: 8%; top: 29%; }
+.atomix-issue-cursor-2 { left: 8%; top: 53%; }
+.atomix-issue-cursor-3 { left: 8%; top: 77%; }
+
+@media (min-width: 768px) {
+  .atomix-issue-cursor-0 { left: 8%; top: 12%; }
+  .atomix-issue-cursor-1 { left: 58%; top: 12%; }
+  .atomix-issue-cursor-2 { left: 8%; top: 64%; }
+  .atomix-issue-cursor-3 { left: 58%; top: 64%; }
+}
+
+.atomix-flow-reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.atomix-flow-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.atomix-flow-connector {
+  position: relative;
+  min-height: 48px;
+  min-width: 0;
+  padding-left: 18px;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.atomix-flow-connector.is-visible { opacity: 1; }
+
+.atomix-connector-line {
+  position: relative;
+  height: 36px;
+  width: 2px;
+  overflow: visible;
+  border-radius: 999px;
+  background: #0f4c4a;
+}
+
+.atomix-scan-beam {
+  position: absolute;
+  left: -2.5px;
+  top: 0;
+  height: 7px;
+  width: 7px;
+  border-radius: 999px;
+  background: #0f4c4a;
+  opacity: 0;
+  animation: atomix-beam-down 1.1s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.atomix-flow-connector.is-visible .atomix-scan-beam {
+  animation-play-state: running;
+}
+
+.atomix-particle {
+  position: absolute;
+  left: -2.5px;
+  top: -3.5px;
+  height: 7px;
+  width: 7px;
+  border-radius: 999px;
+  background: #0f4c4a;
+  opacity: 0;
+  animation: atomix-particle-drop 0.9s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.atomix-flow-connector.is-visible .atomix-particle { animation-play-state: running; }
+.atomix-particle-two { animation-delay: 0.18s; }
+.atomix-particle-three { animation-delay: 0.36s; }
+
+@keyframes atomix-beam-down {
+  0% { opacity: 0; transform: translateY(0); }
+  12% { opacity: 0.85; }
+  88% { opacity: 0.65; }
+  100% { opacity: 0; transform: translateY(36px); }
+}
+
+@keyframes atomix-particle-drop {
+  0% { opacity: 0; transform: translateY(0); }
+  15% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(42px); }
+}
+
+@keyframes atomix-doc-marquee {
+  to { transform: translateX(calc(-50% - 5px)); }
+}
+
+@keyframes atomix-cursor-press {
+  0%, 42%, 100% { transform: scale(1); }
+  52% { transform: scale(0.86); }
+  66% { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atomix-flow-stage,
+  .atomix-flow-reveal,
+  .atomix-flow-connector,
+  .atomix-stage-scan,
+  .atomix-scan-beam,
+  .atomix-particle,
+  .atomix-doc-track,
+  .atomix-issue-card,
+  .atomix-issue-unresolved,
+  .atomix-issue-resolved,
+  .atomix-issue-cursor {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .atomix-stage-scan { width: 100%; }
+  .atomix-issue-cursor { display: none; }
+  .atomix-issue-resolved { display: none; }
+}
