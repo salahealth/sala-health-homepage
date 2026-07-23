@@ -38,7 +38,7 @@ export function Nav() {
           )}
         </div>
         <a
-          href="#embed"
+          href="mailto:partnerships@salahealth.co"
           className="rounded-full bg-forest px-5 py-2.5 text-sm font-medium text-bone transition-colors hover:bg-forestdark">
           
           Get in touch

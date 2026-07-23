@@ -12,10 +12,10 @@ export function Footer() {
             </p>
           </div>
           <a
-            href="mailto:hello@sala.health"
+            href="mailto:partnerships@salahealth.co"
             className="group inline-flex items-center gap-2 self-start rounded-full border border-bone/30 px-6 py-3 text-sm font-medium transition-colors hover:bg-bone hover:text-forest">
             
-            hello@sala.health
+            partnerships@salahealth.co
             <ArrowUpRightIcon className="h-4 w-4" strokeWidth={1.5} />
           </a>
         </div>
