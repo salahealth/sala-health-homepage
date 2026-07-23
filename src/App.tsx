@@ -1,25 +1,23 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Navbar } from './components/Navbar';
+import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
-import { WhatWeDo } from './components/WhatWeDo';
-import { WhoWeServe } from './components/WhoWeServe';
-import { Traction } from './components/Traction';
-import { CTASection } from './components/CTASection';
+import { Mission } from './components/Mission';
+import { Team } from './components/Team';
+import { Impact } from './components/Impact';
+import { Embed } from './components/Embed';
 import { Footer } from './components/Footer';
 import { LandingPage, ReportPage } from './components/PhilHealthEstimatorFlow';
-import { PhilHealthSpotlight } from './components/PhilHealthSpotlight';
 
 function Homepage() {
   return (
-    <div className="min-h-screen bg-void text-white font-body selection:bg-blue/20 selection:text-white">
-      <Navbar />
+    <div className="w-full bg-bone text-ink">
+      <Nav />
       <main>
         <Hero />
-        <WhatWeDo />
-        <WhoWeServe />
-        <PhilHealthSpotlight />
-        <Traction />
-        <CTASection />
+        <Mission />
+        <Team />
+        <Impact />
+        <Embed />
       </main>
       <Footer />
     </div>

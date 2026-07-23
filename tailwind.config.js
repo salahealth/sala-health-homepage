@@ -1,5 +1,3 @@
-
-/** @type {import('tailwindcss').Config} */
 export default {
   content: [
   './index.html',
@@ -8,21 +6,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        void: '#030712',
-        surface: '#0c1222',
-        'surface-alt': '#111827',
-        blue: '#3b82f6',
-        'blue-bright': '#60a5fa',
-        'blue-deep': '#1d4ed8',
-        cyan: '#06b6d4',
-        purple: '#a855f7',
-        'purple-bright': '#c084fc',
-        emerald: '#10b981',
-        'emerald-bright': '#34d399',
+        bone: '#f6f4ee',
+        paper: '#fbfaf6',
+        ink: '#17201d',
+        muted: '#5b6560',
+        line: '#e2ded3',
+        forest: '#0f4c43',
+        forestdark: '#0a352f',
       },
       fontFamily: {
-        heading: ['"Sora"', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        serif: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      letterSpacing: {
+        eyebrow: '0.22em',
       },
     },
   },

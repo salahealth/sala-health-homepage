@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+/* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORTS — DO NOT DELETE THIS COMMENT */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap');
 
 /* CRITICAL: THE FOLLOWING TAILWIND IMPORTS MUST NEVER BE DELETED OR REORDERED — DO NOT DELETE THIS COMMENT */
 @import 'tailwindcss/base';
@@ -8,125 +9,40 @@
 /* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
 
 :root {
-  --void: #030712;
-  --surface: #0c1222;
-  --surface-alt: #111827;
-  --blue: #3b82f6;
-  --blue-bright: #60a5fa;
-  --blue-deep: #1d4ed8;
-  --cyan: #06b6d4;
-  --purple: #a855f7;
-  --purple-bright: #c084fc;
-  --emerald: #10b981;
-  --text-primary: #ffffff;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --border: rgba(255, 255, 255, 0.06);
+  color-scheme: light;
+}
+html {
+  scroll-behavior: smooth;
 }
 body {
-  font-family: 'Inter', sans-serif;
-  color: var(--text-primary);
-  background-color: var(--void);
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #f6f4ee;
+  color: #17201d;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Sora', sans-serif;
+::selection {
+  background-color: #0f4c43;
+  color: #f6f4ee;
 }
-/* Custom utilities for glows and patterns */
-.bg-grid-pattern {
-  background-image: linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+.hero-title {
+  font-size: clamp(4.75rem, 20vw, 18rem);
+  line-height: 0.75;
+  letter-spacing: -0.075em;
 }
-.glow-blue {
-  box-shadow: 0 0 80px rgba(59, 130, 246, 0.15);
+.hero-title-line {
+  display: block;
+  white-space: nowrap;
 }
-.glow-blue-sm {
-  box-shadow: 0 0 40px rgba(59, 130, 246, 0.1);
+@media (min-width: 1280px) and (min-aspect-ratio: 3/2) {
+  .hero-title {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.1em;
+    font-size: clamp(7rem, 10.5vw, 14rem);
+    line-height: 0.86;
+  }
 }
-/* Animations */
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-.animated-border {
-  background: linear-gradient(135deg, #3b82f6, #06b6d4, #3b82f6);
-  background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite;
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.5); }
-}
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-/* NEW DYNAMIC ANIMATIONS */
-@keyframes aurora {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-@keyframes gradient-text {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-@keyframes float-slow {
-  0%, 100% { transform: translate(0, 0); }
-  33% { transform: translate(10px, -20px); }
-  66% { transform: translate(-10px, 20px); }
-}
-@keyframes float-fast {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(0, -15px); }
-}
-@keyframes float-diagonal {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(20px, -20px); }
-}
-@keyframes breathe {
-  0%, 100% { transform: scale(1); opacity: 0.8; }
-  50% { transform: scale(1.1); opacity: 1; }
-}
-@keyframes streak {
-  0% { transform: translateX(-100%); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateX(100vw); opacity: 0; }
-}
-/* NEW UTILITY CLASSES */
-.text-gradient-animated {
-  background: linear-gradient(to right, var(--blue), var(--cyan), var(--purple), var(--blue));
-  background-size: 300% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: gradient-text 8s linear infinite;
-}
-.aurora-bg {
-  background: linear-gradient(45deg, rgba(59,130,246,0.15), rgba(6,182,212,0.15), rgba(168,85,247,0.15), rgba(16,185,129,0.15));
-  background-size: 400% 400%;
-  animation: aurora 15s ease infinite;
-}
-.animate-float-slow { animation: float-slow 12s ease-in-out infinite; }
-.animate-float-fast { animation: float-fast 6s ease-in-out infinite; }
-.animate-float-diagonal { animation: float-diagonal 9s ease-in-out infinite; }
-.animate-breathe { animation: breathe 6s ease-in-out infinite; }
-.animate-streak { animation: streak 8s linear infinite; }
 
 /* ── PhilHealth estimator pages ── */
 
